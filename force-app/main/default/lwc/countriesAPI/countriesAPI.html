@@ -1,0 +1,26 @@
+<template>
+  <lightning-combobox
+    name="progress"
+    label="Status"
+    value={value}
+    placeholder="Select Progress"
+    options={options}
+    onchange={handleChange}
+  ></lightning-combobox>
+
+  <div class="slds-m-top_medium slds-m-bottom_x-large">
+    <div onkeyup={handleKeyUp}>
+      <lightning-input
+        name="enter-search"
+        label="Search on 'enter' key"
+        type="search"
+      ></lightning-input>
+    </div>
+    <p if:true={queryTerm}>Searched for {parameterValue}!</p>
+  </div>
+
+  <template if:true={countries.data}>
+    <lightning-datatable key-field="Id" data={countries.data} columns={columns}>
+    </lightning-datatable>
+  </template>
+</template>

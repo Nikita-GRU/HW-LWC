@@ -1,0 +1,28 @@
+<template>
+    <lightning-combobox
+            name="progress"
+            label="Status"
+            value={searchOption}
+            placeholder="Select Progress"
+            options={options}
+            onchange={handleOptionChange} ></lightning-combobox>
+
+    <p>Selected value is: {searchOption}</p>
+    <div class="slds-var-m-around_medium">
+        <p>Hello, {searchKey}!</p>
+        <lightning-input
+            label="Search"
+            value={searchKey}
+            onchange={handleSearchChange}
+        ></lightning-input>
+    </div>
+
+    <template if:true={searchResult}>
+    <lightning-datatable
+      key-field="Id"
+      data={searchResult}
+      columns={columns}
+    >
+    </lightning-datatable>
+    </template>
+</template>

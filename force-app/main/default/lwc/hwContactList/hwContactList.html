@@ -1,0 +1,37 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-14-2020
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   10-13-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+  
+    <div class="slds-text-color_inverse slds-text-align_center slds-var-m-vertical_medium content"> Page {page} from {totalPages.data}</div>
+
+  <template if:true={paginatedContacts.data}>
+    <lightning-datatable
+      key-field="Id"
+      data={paginatedContacts.data}
+      columns={columns}
+    >
+    </lightning-datatable>
+  </template>
+  <lightning-combobox
+  name="progress"
+  label="Items on page"
+  value={value}
+  placeholder="Select items per page"
+  options={options}
+  onchange={handleChange} ></lightning-combobox>
+  <div class="slds-var-m-around_medium">
+    <c-paginator
+      class="slds-show slds-is-relative"
+      onprevious={handlePrevious}
+      onnext={handleNext}
+    ></c-paginator>
+  </div>
+</template>
